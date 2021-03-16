@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HOME</title>
+    <link rel="stylesheet" href="../style/style.css">
+</head>
+
+<body>
+    <header>
+        <nav>
+            <ul>
+                <li><a href="/">Home</a></li>
+                <li><a href="/AllCountries">All Countries</a></li>
+                <li><a href="/MyRecords">All /My Records</a></li>
+
+
+
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <section>
+            <% data.forEach(element=>{%>
+                <div>
+                    <h3>Country:
+                        <%= element.country %>
+                    </h3>
+
+                    <h3>totalconfirmed:
+                        <%= element.totalconfirmed %>
+                    </h3>
+                    <h3>totaldeaths:
+                        <%= element.totaldeaths %>
+                    </h3>
+                    <h3>totalrecovered:
+                        <%= element.totalrecovered %>
+                    </h3>
+                    <h3>Date:
+                        <%= element.date %>
+                    </h3>
+                    <form action="/RecordDetails/<%= element.id %>?_method=DELETE" method="post"><button type="submit">Delete</button></form>
+                    <button type="submit" class="ubdateButton">Update</button>
+                    <form action="/RecordDetails/<%= element.id %>?_method=PUT" method="post" class="ubdateForm">
+                        <input type="text" name="country" value="<%= element.country %>">
+                        <input type="text" name="totalconfirmed" value="<%= element.totalconfirmed %>">
+                        <input type="text" name="totaldeaths" value="<%= element.totaldeaths %>">
+                        <input type="text" name="totalrecovered" value="<%= element.totalrecovered %>">
+                        <input type="text" name="date" value="<%= element.date %>">
+
+                        <button type="submit">Update Now</button></form>
+
+
+                </div>
+
+
+                <% }) %>
+
+        </section>
+    </main>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script>
+        $('.ubdateForm').hide();
+        $('.ubdateButton').on('click', function() {
+            $('.ubdateForm , .ubdateButton').toggle();
+
+        })
+    </script>
+</body>
+
+</html>

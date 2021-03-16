@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HOME</title>
+    <link rel="stylesheet" href="../style/style.css">
+</head>
+
+<body>
+    <header>
+        <nav>
+            <ul>
+                <li><a href="/">Home</a></li>
+                <li><a href="/AllCountries">All Countries</a></li>
+                <li><a href="/MyRecords">All /My Records</a></li>
+
+
+
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <section>
+            <% data.forEach(element=>{%>
+                <div>
+                    <h3>Country:
+                        <%= element.Country %>
+                    </h3>
+                    <h3>TotalConfirmed:
+                        <%= element.TotalConfirmed %>
+                    </h3>
+                    <h3>TotalDeaths:
+                        <%= element.TotalDeaths %>
+                    </h3>
+                    <h3>TotalRecovered:
+                        <%= element.TotalRecovered %>
+                    </h3>
+                    <h3>Date:
+                        <%= element.Date %>
+                    </h3>
+
+                    <form action="/MyRecords" method="post">
+                        <input type="hidden" name="Country" value="<%= element.Country %>">
+                        <input type="hidden" name="TotalConfirmed" value="<%= element.TotalConfirmed %>">
+                        <input type="hidden" name="TotalDeaths" value="<%= element.TotalDeaths %>">
+                        <input type="hidden" name="TotalRecovered" value="<%= element.TotalRecovered %>">
+                        <input type="hidden" name="Date" value="<%= element.Date %>">
+                        <button type="submit">add-to-my-records</button>
+
+                    </form>
+                </div>
+
+
+                <% }) %>
+
+        </section>
+    </main>
+</body>
+
+</html>

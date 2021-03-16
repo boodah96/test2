@@ -1,0 +1,20 @@
+body {
+    background-color: aquamarine;
+}
+
+section {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    width: 90%;
+    margin: 5%;
+}
+
+div {
+    display: flex;
+    flex-flow: column;
+    justify-content: center;
+    background-color: blueviolet;
+    color: cornsilk;
+    width: 350px;
+    margin: 20px;
+}
