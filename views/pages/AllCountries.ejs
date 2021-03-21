@@ -26,7 +26,11 @@
         <section>
             <% data.forEach(element=>{%>
                 <div>
-                    <h3>Country:
+                    <span style="border-radius: 5px;">
+
+                        <img src="https://www.countryflags.io/<%=element.CountryCode%>/flat/64.png" width="50px"  >
+                    </span>
+                    <h3>
                         <%= element.Country %>
                     </h3>
                     <h3>TotalConfirmed:
@@ -43,6 +47,7 @@
                     </h3>
 
                     <form action="/MyRecords" method="post">
+
                         <input type="hidden" name="Country" value="<%= element.Country %>">
                         <input type="hidden" name="TotalConfirmed" value="<%= element.TotalConfirmed %>">
                         <input type="hidden" name="TotalDeaths" value="<%= element.TotalDeaths %>">
